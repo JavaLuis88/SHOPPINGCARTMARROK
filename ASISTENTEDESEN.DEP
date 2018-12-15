@@ -1,0 +1,25 @@
+[Version]
+Version=1.0.0.0
+
+[ASISTENTEDESEN.exe <000A>]
+Dest=$(AppPath)
+Date=16/02/2008
+Time=16:00
+Version=1.0.0.0
+CABFilename=
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=VB6ES.DLL
+Uses8=msscript.ocx
+Uses9=RICHTX32.OCX
+Uses10=Comdlg32.ocx
+
+[msscript.ocx <000A>]
+Dest=$(WinSysPath)
+Date=20/08/2004
+Time=11:00
+Version=1.0.0.8820

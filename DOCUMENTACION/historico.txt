@@ -1,0 +1,10 @@
+Versión 0.92
+-Corregidos algunos bugs menores
+
+Versión 0.91
+-Añade una plantilla nueva muy similar a la anterior pero con opciones nuevas, además 
+requiere un intérprete de Perl para que funcione.
+-Corregidos algunos bugs menores. 
+
+Versión 0.90
+-Versión inicial de Marrok Shopping Cart.

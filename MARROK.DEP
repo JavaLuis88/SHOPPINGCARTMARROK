@@ -1,0 +1,37 @@
+[Version]
+Version=1.0.0.0
+
+[MARROK.exe <000A>]
+Dest=$(AppPath)
+Date=16/02/2008
+Time=16:01
+Version=1.0.0.0
+CABFilename=
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=VB6ES.DLL
+Uses8=DAO2535.TLB
+Uses9=msscript.ocx
+Uses10=VBSUtilidades.dll
+Uses11=scrrun.dll
+Uses12=MSCOMCTL.OCX
+Uses13=MSCOMCT2.OCX
+Uses14=Comdlg32.ocx
+Uses15=RICHTX32.OCX
+Uses16=MSFLXGRD.OCX
+
+[msscript.ocx <000A>]
+Dest=$(WinSysPath)
+Date=20/08/2004
+Time=11:00
+Version=1.0.0.8820
+
+[VBSUtilidades.dll <000A>]
+Dest=$(WinSysPath)
+Date=14/01/1998
+Time=02:33
+Version=1.0.0.0

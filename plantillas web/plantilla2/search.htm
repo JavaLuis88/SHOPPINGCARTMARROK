@@ -1,0 +1,465 @@
+<HTML>
+<HEAD>
+<!--saved from url=(0014)about:internet-->
+<!--HOJAS DE ESTILO-->
+<STYLE TYPE="TEXT/CSS">
+<!--
+A {
+  text-decoration:none;
+}
+A:hover {
+
+  text-decoration:underline;
+  
+}
+-->
+</STYLE>
+<!--HOJAS DE ESTILO-->
+<!--VARIABLES-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  var qshurlpagina;
+  var centralflags="0000";
+  var marcoflags;
+  var marco2flags;
+  var archivomarco;
+  var nombrelenguaje
+  var lenguajeelegido="";
+  var numeroproductos=0;
+  var productosalmacenados = new Array();
+  var cadenatempo="";
+  var handleventana=null;
+  var lyccapa;
+  var arresbusqueda;
+  var posicion=0;
+  var npaginas=0;
+  var hayqueactualizar=false;
+  var arresultadosbusqueda = new Array();
+  var cadenafichas;
+//-->
+</SCRIPT>
+<!--VARIABLES-->
+<!--COMPROBAR JAVASCRIPT-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var jsv12=false;
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  jsv12=true;
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+  if (jsv12==false) {
+   
+    top.location.href=ajustarurlpagina(false) + "nocapacidad.htm";
+
+  }
+  if (!document.getElementById) {
+    top.location.href=ajustarurlpagina(false) + "nocapacidad.htm";
+  }
+
+//-->
+</SCRIPT>
+<NOSCRIPT>
+<META HTTP-EQUIV="REFRESH" CONTENT="1;URL=nocapacidad.htm">
+</NOSCRIPT>
+<!--COMPROBAR JAVASCRIPT-->
+<!--COMPROBAR RESOLUCION-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  if (screen.width<1024 || screen.height<768) {
+    top.location.href=ajustarurlpagina(false) + "nocapacidad.htm";
+  }
+//-->
+</SCRIPT>
+<!--COMPROBAR RESOLUCION-->
+<!--CARGAR ARCHIVOS JAVASCRIPT-->
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="Config/config.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/cadenas.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/cookies.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/HashArray.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/QueryStringHandle.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/MiscShop.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/constantes.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="Config/product.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="Config/models.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/GenericPaypalShopingCartButton.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/LayerCreator.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/LayerHandle.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="Config/imagesdb.js">
+</SCRIPT>
+<!--CARGAR ARCHIVOS JAVASCRIPT-->
+<!--COMPROBAR URL DE LA PAGINA-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  qshurlpagina=new QueryStringHandle(location.search);
+  if (modelopagina!=0 && qshurlpagina.getvalue("inframe")!="1") {
+     top.location.href=ajustarurlpagina(false) + "index.htm";
+  }
+  if (modelopagina==0 && location.href.toUpperCase().indexOf(top.location.href.toUpperCase())!=0) {
+     top.location.href=ajustarurlpagina(false) + "index.htm";
+  }
+  else if (modelopagina!=0 && location.href.toUpperCase().indexOf(top.location.href.toUpperCase())==0) {
+    top.location.href=ajustarurlpagina(false) + "index.htm";
+  }
+//-->
+</SCRIPT>
+<!--COMPROBAR URL DE LA PAGINA-->
+<!--COMPROBAR SI SON NECESARIAS LAS COOKIES Y VER SI ESTAN ACTIVAS--> 
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  if (modelopagina==0) {
+
+    SetCookie("PRUEBA","SI",5);
+    if (GetCookie("PRUEBA")!="SI") {
+      DeleteCookie("PRUEBA");
+      top.location.href=ajustarurlpagina(false) + "nocapacidad.htm";
+    }
+    DeleteCookie("PRUEBA");
+
+  }
+//-->
+</SCRIPT>
+<!--COMPROBAR SI SON NECESARIAS LAS COOKIES Y VER SI ESTAN ACTIVAS--> 
+<!--CARGAR LENGUAJE Y/O PEDIDO-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  
+  if (modelopagina==0) {
+
+    comprobararreglarcookiedeconfiguracion();
+  }
+  nombrelenguaje=GetLanguageNameStore();
+  if (trim(nombrelenguaje)=="" || existslanguage(nombrelenguaje)==false) {
+    document.write("<SCRIPT LANGUAGE=\"JavaScript1.2\" SRC=\"Languages/" + lenguajepordefecto + ".lng\">");
+    document.write("</SCRIPT>");
+    nombrelenguaje=lenguajepordefecto;
+  }
+  else {
+    document.write("<SCRIPT LANGUAGE=\"JavaScript1.2\" SRC=\"Languages/" + nombrelenguaje + ".lng\">");
+    document.write("</SCRIPT>");
+
+  }
+  if (modelopagina==0) {
+    StoreSelectedLanguage(nombrelenguaje);
+    SetFlag(2,"1");
+    cargarpedido();
+  }
+
+
+//-->
+</SCRIPT>
+<!--CARGAR LENGUAJE Y/O PEDIDO-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  document.write("<TITLE>"+titulodelapagina+"</TITLE>");
+//-->
+</SCRIPT>
+<!--REALIZAR BUSQUEDA-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--  
+if (comprobarcadenabusqueda(unescape(qshurlpagina.getvalue("b")))==true) {
+
+  arresultadosbusqueda=buscarproductos(qshurlpagina.getvalue("b"));
+
+}
+//-->
+</SCRIPT>
+<!--REALIZAR BUSQUEDA-->
+</HEAD>
+<!--CREAMOS EL CONTENIDO DE LA PAGINA--> 
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+ 
+  if (modelopagina==0 || qshurlpagina.getvalue("inframe")=="1") {
+
+     
+
+    cadenatempo="<BODY BGCOLOR=\"" + colorfondopaginacentral + "\""; 
+    if (trim(imagenfondopaginacentral)!="") {
+      cadenatempo=cadenatempo+" BACKGROUND=\"Images/" + imagenfondopaginacentral + "\"";
+    }
+
+    cadenatempo=cadenatempo + "LINK=\"" + colorenlacenovisitado1 + "\" VLINK=\"" + colorenlacevisitado1 + "\" ONLOAD=\"marcarpaginacomocargadayactualizarmarcos(2);\" ONUNLOAD=\"marcarpaginacomodescargadaycerrarventanas();\" ONSCROLL=\"movercapas();\">"
+    document.write(cadenatempo);
+    if (numerodeproductos()>=1) {
+      cadenatempo="<FONT";
+      if (trim(tipofuente1)!="") {
+        cadenatempo=cadenatempo + " FACE=\""+ tipofuente1  +"\""
+      }
+      cadenatempo=cadenatempo + " COLOR=\""+ colorfuente1  +"\""
+      cadenatempo=cadenatempo + " SIZE=1>";
+      if (modelopagina==1 || modelopagina==2 || modelopagina==5 || modelopagina==6 || modelopagina==7 || modelopagina==8) {
+        tamanopantalla=parseInt(screen.width-((screen.width/100)*anchodelmarcovertical))-100;
+      }
+      else {
+        tamanopantalla=screen.width-100;
+      }
+      document.write("<DIV STYLE=\"position:absolute;top:0px;left:" + tamanopantalla + "px\">  "+cadenatempo+"<A HREF=\"\" ONCLICK=\"iravercambiarproductos();return false;\"><IMG SRC=\"cesta.gif\" BORDER=0 ALT=\""+texto92+"\" HEIGHT=50 WIDTH=50><BR>"+numerodeproductos() + " " +texto37+"</A></FONT></DIV> ");
+
+    } 
+    if (incluirenlacesenlapaginacentralen==1 || incluirenlacesenlapaginacentralen==3) {
+     
+      cadenatempo="<CENTER><PRE><B><FONT";
+      if (trim(tipofuente1)!="") {
+        cadenatempo=cadenatempo + " FACE=\""+ tipofuente1  +"\""
+      }
+      cadenatempo=cadenatempo + " COLOR=\""+ colorfuente1  +"\""
+      cadenatempo=cadenatempo + " SIZE="+ tamanofuente1  +">";
+      document.write(cadenatempo);
+      if (modelopagina==0 || incluirenlacesen==1 || incluirenlacesen==4 || incluirenlacesen==5 || incluirenlacesen==7) {
+        document.write("  <A HREF=\"\" ONCLICK=\"iraprincipal();return false;\">"+texto28+"</A> ");
+        document.write("  <A HREF=\"\" ONCLICK=\"iracategorias();return false;\">"+texto1+"</A> ");
+        if (numerodeproductos()>=1) {
+          document.write("  <A HREF=\"\" ONCLICK=\"iravercambiarproductos();return false;\">"+texto6+"</A> ");
+          document.write("  <A HREF=\"\" ONCLICK=\"iracomprarpedido();return false;\">"+texto40+"</A> ");
+        }
+      }
+      if ((incluirbuscadoren==1 || incluirbuscadoren==4 || incluirbuscadoren==5 || incluirbuscadoren==7) && camposdelbuscador!="0000") {
+        document.write("  <A HREF=\"\" ONCLICK=\"mostrarbuscador();return false;\">"+texto3+"</A> ");
+      }
+
+      if (numerodelenguajes()>=2 && (incluiropciondeelegirlenguajeen==1 || incluiropciondeelegirlenguajeen==4 || incluiropciondeelegirlenguajeen==5 || incluiropciondeelegirlenguajeen==7)) {
+        document.write("  <A HREF=\"\" ONCLICK=\"elegirlenguaje();return false\">" + texto4 + "</A>");
+
+
+     
+      }
+      if ((incluirdisclaimeren==1 || incluirdisclaimeren==4 || incluirdisclaimeren==5 || incluirdisclaimeren==7) && trim(textodisclaimer)!="") {
+        document.write("<BR>  <A HREF=\"\" ONCLICK=\"iradisclaimer();return false;\">"+texto22+"</A> ");
+      }
+      document.write("</FONT></B></PRE></CENTER>");
+    }
+//  
+
+    if (isNaN(qshurlpagina.getvalue("p"))==true || (""+parseInt(qshurlpagina.getvalue("p")))!=qshurlpagina.getvalue("p") || parseInt(qshurlpagina.getvalue("p"))<1 || parseInt(qshurlpagina.getvalue("p"))>numeropaginasproductos(arresultadosbusqueda.length)) {
+      cadenatempo="<CENTER>";
+      cadenatempo=cadenatempo+"<TABLE BORDER=0 CELLPADDING=10 CELLSPACING=10 WIDTH=" + porcentajeanchotablaproductos + "%>";
+      cadenatempo=cadenatempo+"<TR><TD BGCOLOR=\""+colorfondominificha1+"\">";
+      cadenatempo=cadenatempo+"<CENTER><B><FONT";
+      if (trim(tipofuente7)!="") {
+        cadenatempo=cadenatempo+ " FACE=\""+ tipofuente7  +"\""
+      }
+      cadenatempo=cadenatempo+ " COLOR=\""+ colorfuente7  +"\""
+      cadenatempo=cadenatempo+ " SIZE="+ tamanofuente7  +">";  
+      cadenatempo=cadenatempo+"<NOBR>"+ texto34 + "</NOBR><BR></FONT></B></CENTER>";
+      cadenatempo=cadenatempo+"</TABLE>";
+      cadenatempo=cadenatempo+"</CENTER>";
+      document.write(cadenatempo);
+    }
+    else if (usarmododetiendacompacta==true && sepuedeusarmodocompacto()==true){
+      document.write("<CENTER>");
+      document.write("<P><P>");
+      cadenafichas=crearfichasproductos(arresultadosbusqueda);
+      document.write(cadenafichas);
+      document.write("</CENTER>");
+    }
+    else {
+      document.write("<CENTER>");
+      document.write("<P><P>");
+      cadenafichas=crearfichasproductos(obtenerproductospagina(parseInt(qshurlpagina.getvalue("p")),arresultadosbusqueda));
+      document.write(cadenafichas);
+      document.write("</CENTER>");
+    }
+    
+//
+    if (incluirenlacesenlapaginacentralen==2 || incluirenlacesenlapaginacentralen==3) {
+      cadenatempo="<CENTER><B><PRE><FONT";
+      if (trim(tipofuente1)!="") {
+        cadenatempo=cadenatempo + " FACE=\""+ tipofuente1  +"\""
+      }
+      cadenatempo=cadenatempo + " COLOR=\""+ colorfuente1  +"\""
+      cadenatempo=cadenatempo + " SIZE="+ tamanofuente1  +">";
+      document.write(cadenatempo);
+      if (modelopagina==0 || incluirenlacesen==1 || incluirenlacesen==4 || incluirenlacesen==5 || incluirenlacesen==7) {
+        document.write("  <A HREF=\"\" ONCLICK=\"iraprincipal();return false;\">"+texto28+"</A> ");
+        document.write("  <A HREF=\"\" ONCLICK=\"iracategorias();return false;\">"+texto1+"</A> ");
+        if (numerodeproductos()>=1) {
+          document.write("  <A HREF=\"\" ONCLICK=\"iravercambiarproductos();return false;\">"+texto6+"</A> ");
+          document.write("  <A HREF=\"\" ONCLICK=\"iracomprarpedido();return false;\">"+texto40+"</A> ");
+        }
+      }
+      if ((incluirbuscadoren==1 || incluirbuscadoren==4 || incluirbuscadoren==5 || incluirbuscadoren==7) && camposdelbuscador!="0000") {
+        document.write("  <A HREF=\"\" ONCLICK=\"mostrarbuscador();return false;\">"+texto3+"</A> ");
+      }
+      if (numerodelenguajes()>=2 && (incluiropciondeelegirlenguajeen==1 || incluiropciondeelegirlenguajeen==4 || incluiropciondeelegirlenguajeen==5 || incluiropciondeelegirlenguajeen==7)) {
+        document.write("  <A HREF=\"\" ONCLICK=\"elegirlenguaje();return false\">" + texto4 + "</A>  ");
+
+
+     
+      }
+      if ((incluirdisclaimeren==1 || incluirdisclaimeren==4 || incluirdisclaimeren==5 || incluirdisclaimeren==7) && trim(textodisclaimer)!="") {
+        document.write("<BR>  <A HREF=\"\" ONCLICK=\"iradisclaimer();return false;\">"+texto22+"</A> ");
+      }
+      document.write("</FONT></PRE></B></CENTER>");
+    }
+    //BUSCADOR
+    lyccapa=new LayerCreator("capabuscador",true);
+    lyccapa.SetTop(scrollvertical());
+    lyccapa.SetLeft(0);
+    lyccapa.SetHeight(100);
+    if (modelopagina==1 || modelopagina==2 || modelopagina==5 || modelopagina==6 || modelopagina==7 || modelopagina==8) {
+      lyccapa.SetWidth(parseInt(screen.width-((screen.width/100)*anchodelmarcovertical)));
+    }
+    else {
+      lyccapa.SetWidth(screen.width);
+    }
+    posicion=lyccapa.GetWidth();
+    lyccapa.SetAdditionalStyles(new Array("background-color:"+colorfondocapabuscador+";","",""));
+    lyccapa.SetAdditionalCommands(new Array("","",""));
+    lyccapa.SetVisibility(false);
+    cadenatempo="<FONT";
+    if (trim(tipofuente4)!="") {
+      cadenatempo=cadenatempo + " FACE=\""+ tipofuente4  +"\""
+    }
+    cadenatempo=cadenatempo + " COLOR=\""+ colorfuente4  +"\""
+    cadenatempo=cadenatempo + " SIZE=2>";
+    document.write(lyccapa.CreateOpenTag());
+    document.write("<CENTER>");
+    document.write("<FORM NAME=\"FRMBUSCADOR\">");
+    document.write("<BR>");
+    document.write("<TABLE BORDER=0 CELLPADDING=3 CELLSPACING=3 BORDERCOLOR=\"" + colorbordebuscador + "\" BGCOLOR=\""+colorfondobuscador+"\">");
+    document.write("<TR>");
+    if (camposdelbuscador.charAt(0)=="1") {
+      document.write("<TH ALIGN=\"RIGHT\">"+cadenatempo+texto7+" </FONT>");
+      document.write("<INPUT NAME=\"txtcadenabusaqueda\" TYPE=\"TEXT\" VALUE=\"\" SIZE=30 MAXLENGTH=55></TH>");
+    }
+    if (camposdelbuscador.charAt(1)=="1" || camposdelbuscador.charAt(2)=="1") {
+      document.write("<TH ALIGN=\"LEFT\">"+cadenatempo+texto8+" </FONT>");
+      document.write("<SELECT NAME=\"slbprecio\"><OPTION VALUE=\"1\">"+texto9+"</OPTION><OPTION VALUE=\"2\">"+texto10+"</OPTION><OPTION VALUE=\"3\">"+texto11+"</OPTION></SELECT>");
+      document.write("<INPUT NAME=\"txtprecio\" TYPE=\"TEXT\" VALUE=\"\" SIZE=6 MAXLENGTH=55>");
+      if (camposdelbuscador.charAt(1)=="1" && camposdelbuscador.charAt(2)=="1" &&  ponerprecioendosmonedas==true) {
+        document.write("<SELECT NAME=\"slbmonedas\">");
+        if (monedaprincipal==1) {
+          document.write("<OPTION VALUE=\"1\">"+ texto15 +"</OPTION>");
+
+        }        
+        else if (monedaprincipal==2) {
+          document.write("<OPTION VALUE=\"1\">"+ texto16 +"</OPTION>");
+
+        }        
+        else if (monedaprincipal==3) {
+          document.write("<OPTION VALUE=\"1\">"+ texto17 +"</OPTION>");
+
+        }        
+        else if (monedaprincipal==4) {
+          document.write("<OPTION VALUE=\"1\">"+ texto18 +"</OPTION>");
+
+        }        
+        else if (monedaprincipal==5) {
+          document.write("<OPTION VALUE=\"1\">"+ texto19 +"</OPTION>");
+
+        }
+        else  {
+          document.write("<OPTION VALUE=\"1\">"+ texto20 +"</OPTION>");
+        }
+       
+        document.write("<OPTION VALUE=\"2\">"+nombredelamonedasecundaria+"</OPTION>");
+        document.write("</SELECT>");
+      }
+    }
+    document.write("</TH>");
+    document.write("</TR>");
+    document.write("<TR>");
+    if (camposdelbuscador.charAt(3)=="1") {
+     document.write("<TH ALIGN=\"RIGHT\">"+cadenatempo+texto12+" </FONT>");
+     document.write("<SELECT NAME=\"slbcategorias\">");
+     document.write("<OPTION VALUE=\"-1@-1\">" + texto21 + "</OPTION>");
+     arcategorias=obtenercategorias();
+     for (var i=0;i<arcategorias.length;i++) {
+       document.write("<OPTION VALUE=\""+i + "@" + "-1\">" + arcategorias[i] + "</OPTION>");
+       arsubcategorias=obtenersubcategorias(arcategorias[i]);
+       for (var z=0;z<arsubcategorias.length;z++) {
+         document.write("<OPTION VALUE=\""+i + "@" + z +"\">_____" + arsubcategorias[z] + "</OPTION>");
+       }
+
+     }
+     document.write("</SELECT></TH>");
+    }
+    document.write("<TH ALIGN=\"CENTER\"> <INPUT NAME=\"cmdbuscar\" TYPE=\"BUTTON\" VALUE=\"" + texto13 + "\" ONCLICK=\"iniciarbusqueda();\"><INPUT NAME=\"cmdcerrar\" TYPE=\"BUTTON\" VALUE=\"" + texto14 + "\" ONCLICK=\"ocultarbuscador();\"></SELECT></TH>");
+    document.write("</TR>");
+    document.write("</TABLE>");
+    document.write("</FORM>");
+    document.write("</CENTER>");
+    document.write(lyccapa.CreateCloseTag());
+    //BUSCADOR
+
+    //DISCLAIMER
+    lyccapa=new LayerCreator("capadisclaimer",true);
+    lyccapa.SetTop(scrollvertical());
+    lyccapa.SetLeft(0);
+    lyccapa.SetHeight(360);
+    lyccapa.SetVisibility(false);
+    if (modelopagina==1 || modelopagina==2 || modelopagina==5 || modelopagina==6 || modelopagina==7 || modelopagina==8) {
+      lyccapa.SetWidth(parseInt(screen.width-((screen.width/100)*anchodelmarcovertical)));
+    }
+    else {
+      lyccapa.SetWidth(screen.width);
+    }
+    lyccapa.SetAdditionalStyles(new Array("background-color:"+colormarcocapadisclaimer+";","",""));
+    lyccapa.SetAdditionalCommands(new Array("","",""));
+    document.write(lyccapa.CreateOpenTag());
+    lyccapa=new LayerCreator("capadisclaimerinterna",false);
+    lyccapa.SetTop(25);
+    lyccapa.SetLeft(5);
+    lyccapa.SetHeight(325);
+    lyccapa.SetVisibility(false);
+    if (modelopagina==1 || modelopagina==2 || modelopagina==5 || modelopagina==6 || modelopagina==7 || modelopagina==8) {
+      lyccapa.SetWidth(parseInt(screen.width-((screen.width/100)*anchodelmarcovertical))-35);
+    }
+    else {
+      lyccapa.SetWidth(screen.width-35);
+    }
+    lyccapa.SetAdditionalStyles(new Array("background-color:"+colorfondocapadisclaimer+";","",""));
+    lyccapa.SetAdditionalCommands(new Array("","","BGCOLOR=\""+colorfondocapadisclaimer+"\""));
+    cadenatempo="<FONT"
+    if (trim(tipofuente5)!="") {
+      cadenatempo=cadenatempo + " FACE=\""+ tipofuente5  +"\""
+    }
+    cadenatempo=cadenatempo + " COLOR=\""+ colorfuente5  +"\""
+    cadenatempo=cadenatempo + " SIZE="+ tamanofuente5  +">";
+    cadenatempo=cadenatempo + textodisclaimer + "</FONT>";
+    document.write(lyccapa.CreateOpenTag());
+    document.write(cadenatempo);
+    document.write(lyccapa.CreateCloseTag());
+
+
+    lyccapa=new LayerCreator("capadisclaimerinterna2",false);
+    lyccapa.SetTop(-323);
+    lyccapa.SetLeft(posicion-44);
+    lyccapa.SetHeight(19);
+    lyccapa.SetWidth(14);
+    lyccapa.SetAdditionalStyles(new Array("background-color:"+colorfondocapadisclaimer+";","",""));
+    lyccapa.SetAdditionalCommands(new Array("ALIGN=\"CENTER\"","",""));
+    lyccapa.SetVisibility(false);
+    cadenatempo="<A HREF=\"#\"><FONT";
+    cadenatempo=cadenatempo + " FACE=\"ARIAL\" COLOR=\""+ colorfuente5  +"\""
+    cadenatempo=cadenatempo + " SIZE=3><A HREF=\"#\" ONCLICK=\"ocultardisclaimer();return false;\">X</A></FONT>";
+    document.write(lyccapa.CreateOpenTag());
+    document.write(cadenatempo);
+    document.write(lyccapa.CreateCloseTag());
+
+    document.write(lyccapa.CreateCloseTag());
+    //DISCLAIMER
+    document.write("</BODY>");
+  }
+//-->
+</SCRIPT>
+<!--CREAMOS EL CONTENIDO DE LA PAGINA--> 
+
+</HTML>

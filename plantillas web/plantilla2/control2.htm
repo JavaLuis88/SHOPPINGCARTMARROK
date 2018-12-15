@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<!--saved from url=(0014)about:internet-->
+<!--HOJAS DE ESTILO-->
+<STYLE TYPE="TEXT/CSS">
+<!--
+A {
+  text-decoration:none;
+}
+A:hover {
+
+  text-decoration:underline;
+  
+}
+-->
+</STYLE>
+<!--HOJAS DE ESTILO-->
+<!--VARIABLES-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  var nombrelenguaje;
+  var lenguajeelegido="";
+  var cadenatempo="";
+  var lyccapas;
+  var contenidomarco="";
+  var qshurlpagina;
+  var arcategorias;
+//-->
+</SCRIPT>
+<!--VARIABLES-->
+<!--COMPROBAR URL DE LA PAGINA-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  if (top.location.href.toUpperCase()==location.href.toUpperCase()) {
+    top.location.href=ajustarurlpagina(false) + "index.htm";
+  }  
+
+//-->
+</SCRIPT>
+<!--COMPROBAR URL DE LA PAGINA-->
+<!--CARGAR ARCHIVOS JAVASCRIPT-->
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="Config/config.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/cadenas.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/cookies.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/MiscShop.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/HashArray.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/constantes.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="Config/product.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="Config/models.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/GenericPaypalShopingCartButton.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/LayerHandle.js">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="JSLibs/QueryStringHandle.js">
+</SCRIPT>
+<!--CARGAR ARCHIVOS JAVASCRIPT-->
+<!--CARGAR LENGUAJE-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  comprobararreglarcookiedeconfiguracion();
+  nombrelenguaje=GetLanguageNameStore();
+  if (trim(nombrelenguaje)=="" || existslanguage(nombrelenguaje)==false) {
+    document.write("<SCRIPT LANGUAGE=\"JavaScript1.2\" SRC=\"Languages/" + lenguajepordefecto + ".lng\">");
+    document.write("</SCRIPT>");
+    nombrelenguaje=lenguajepordefecto;
+  }
+  else {
+    document.write("<SCRIPT LANGUAGE=\"JavaScript1.2\" SRC=\"Languages/" + nombrelenguaje + ".lng\">");
+    document.write("</SCRIPT>");
+
+  }
+//-->
+</SCRIPT>
+<!--CARGAR LENGUAJE-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  document.write("<TITLE>"+titulodelapagina+"</TITLE>");
+//-->
+</SCRIPT>
+</HEAD>
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!-- 
+  cadenatempo="<BODY BGCOLOR=\"" + colorfondomarco2 + "\""; 
+  if (trim(imagenfondomarco1)!="") {
+    cadenatempo=cadenatempo+" BACKGROUND=\"Images/" + imagenfondomarco2 + "\"";
+  }
+  cadenatempo=cadenatempo + " LINK=\"" + colorenlacenovisitado3 + "\" VLINK=\"" + colorenlacevisitado3 + "\">";
+  document.write(cadenatempo);
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+
+  cadenatempo="<CENTER><B><PRE><FONT";
+  if (trim(tipofuente3)!="") {
+    cadenatempo=cadenatempo + " FACE=\""+ tipofuente3  +"\""
+   }
+   cadenatempo=cadenatempo + " COLOR=\""+ colorfuente3  +"\""
+   cadenatempo=cadenatempo + " SIZE="+ tamanofuente3  +">";
+   document.write(cadenatempo);
+   if (incluirenlacesen==3 || incluirenlacesen==5 || incluirenlacesen==6 || incluirenlacesen==7) {
+     if (top.centralflags.charAt(1)!="1" && top.centralflags.charAt(1)!="0") {
+       document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.iraprincipal();return false;\">"+texto28+"</A> ");
+     }
+     qshurlpagina=new QueryStringHandle(top.frames.principal.location.search);
+     if (top.centralflags.charAt(1)=="3") {
+        arcategorias=obtenercategorias();
+        if (isNaN(qshurlpagina.getvalue("p"))==true || (""+parseInt(qshurlpagina.getvalue("p")))!=qshurlpagina.getvalue("p") || parseInt(qshurlpagina.getvalue("p"))<1 || parseInt(qshurlpagina.getvalue("p"))>numeropaginasdecategorias(arcategorias.length)) {
+          document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.iracategorias();return false;\">"+texto1+"</A> ");
+        }       
+
+     }
+     if (top.centralflags.charAt(1)!="3" && usarmododetiendacompacta==true && sepuedeusarmodocompacto()==true) {
+       document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.iraproductos();return false;\">"+texto2+"</A> ");
+
+     }
+     else if (top.centralflags.charAt(1)!="3"){
+       document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.iracategorias();return false;\">"+texto1+"</A> ");
+     }
+      
+     if (numerodeproductos()>=1) {
+       if (top.centralflags.charAt(1)!="6") {
+         document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.iravercambiarproductos();return false;\">"+texto6+"</A> ");
+       }
+       if (top.centralflags.charAt(1)!="7") {
+         document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.iracomprarpedido();return false;\">"+texto40+"</A> ");
+       }
+      }
+    }
+    if ((incluirbuscadoren==3 || incluirbuscadoren==5 || incluirbuscadoren==6 || incluirbuscadoren==7) && camposdelbuscador!="0000") {
+      document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.mostrarbuscador();return false;\">"+texto3+"</A> ");
+    }
+    if (numerodelenguajes()>=2 && (incluiropciondeelegirlenguajeen==3 || incluiropciondeelegirlenguajeen==5 || incluiropciondeelegirlenguajeen==6 || incluiropciondeelegirlenguajeen==7)) {
+      document.write("  <A HREF=\"\" ONCLICK=\"top.frames.principal.elegirlenguaje();return false\">" + texto4 + "</A>  ");
+    }
+    if ((incluirdisclaimeren==3 || incluirdisclaimeren==5 || incluirdisclaimeren==6 || incluirdisclaimeren==7) && trim(textodisclaimer)!="") {
+        document.write("<BR>  <A HREF=\"\" ONCLICK=\"top.frames.principal.iradisclaimer();return false;\">"+texto22+"</A> ");
+    }
+    document.write("</FONT></PRE></B></CENTER>");
+
+//-->
+</SCRIPT>
+</BODY>
+
+
+
+</HTML>

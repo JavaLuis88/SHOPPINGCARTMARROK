@@ -1,0 +1,11 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{73393D18-DAC4-11D1-88FC-0000F8064EBB}") = "MARROK", "MARROKSetup.wip", "{A8C07F63-2CA2-4F12-ADF9-83590C71F5CB}"
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {A8C07F63-2CA2-4F12-ADF9-83590C71F5CB}
+	EndGlobalSection
+EndGlobal

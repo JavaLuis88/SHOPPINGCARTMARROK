@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<!--saved from url=(0014)about:internet-->
+<!--VARIABLES-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  var lenguajeactual;
+  var arlenguajes;
+  var cadenatempo="";
+//-->
+</SCRIPT>
+<!--VARIABLES-->
+<!--FUNCIONES-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+
+  function cambiarlenguaje() {
+    opener.StoreSelectedLanguage(document.FRMLENGUAJE.SLBLENGUAJE.options[document.FRMLENGUAJE.SLBLENGUAJE.selectedIndex].value);
+    if (opener.modelopagina==0) {
+      opener.location.reload();
+    }
+    else {
+      opener.top.hayqueactualizar=true;
+      opener.top.frames.principal.location.reload();
+    }
+    self.close();
+  }
+
+//-->
+</SCRIPT>
+<!--FUNCIONES-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  document.write("<TITLE>"+opener.titulodelapagina+"</TITLE>");
+//-->
+</SCRIPT>
+
+</HEAD>
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  cadenatempo="<BODY BGCOLOR=\"" + opener.colorfondopaginacentral + "\""; 
+  if (opener.trim(opener.imagenfondopaginacentral)!="") {
+    cadenatempo=cadenatempo+" BACKGROUND=\"Images/" + opener.imagenfondopaginacentral + "\"";
+  }
+  cadenatempo=cadenatempo + "LINK=\"" + opener.colorenlacenovisitado1 + "\" VLINK=\"" + opener.colorenlacevisitado1 + "\">"
+  document.write(cadenatempo);
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!--
+  lenguajeactual=opener.GetLanguageNameStore();
+  arlenguajes=opener.lenguajesdisponibles.split("|");
+
+  document.write("<FORM NAME=\"FRMLENGUAJE\">\n");
+  document.write("<CENTER><TABLE BORDER=0><TR><TH>");
+  cadenatempo="<FONT";
+  if (opener.trim(opener.tipofuente1)!="") {
+    cadenatempo=cadenatempo + " FACE=\""+ opener.tipofuente1  +"\""
+  }
+  cadenatempo=cadenatempo + " COLOR=\""+ opener.colorfuente1  +"\""
+  cadenatempo=cadenatempo + " SIZE="+ opener.tamanofuente1  +">";
+  document.write(cadenatempo);
+  document.write(opener.texto4);
+  document.write("</FONT></TH><TH>");
+
+  document.write("<SELECT NAME=\"SLBLENGUAJE\">");
+  for (var i=0;i<arlenguajes.length;i++) {
+    if (arlenguajes[i].toUpperCase()==lenguajeactual.toUpperCase()) {
+      document.write("<OPTION VALUE=\""+ arlenguajes[i] + "\" SELECTED>"+ arlenguajes[i] +"</OPTION>");
+    }
+    else {
+      document.write("<OPTION VALUE=\""+ arlenguajes[i] + "\">"+ arlenguajes[i] +"</OPTION>");
+    }
+  }
+  document.write("</SELECT></TH><TH>");
+  document.write("<INPUT NAME=\"CMDELEGIRLENGUAJE\" TYPE=\"BUTTON\" VALUE=\"" + opener.texto5 + "\" ONCLICK=\"cambiarlenguaje();\"></TH>");
+  document.write("</TR></TABLE></CENTER>");  
+  document.write("</FORM>\n");
+
+//-->
+</SCRIPT>
+</BODY>
+
+
+
+</HTML>
